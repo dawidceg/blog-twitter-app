@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <!-- jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.js"
+      integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM="
+      crossorigin="anonymous"></script>
+
+    <!-- BOOTSTRAP -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <!-- MY_CSS -->
+    <link rel="stylesheet" href="{% static 'css/master.css'%}">
+    <link rel="stylesheet" href="{% static 'css/main.css'%}">
+
+    <!-- FONTAWESOME -->
+    <!-- <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> -->
+    <script src="https://kit.fontawesome.com/c34f7449bf.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="{% static 'img/logo.png' type='image/x-icon' %}">
+
+
+    <title>Twitter. To się dzieje. / Twitter</title>
+
+<!-- ################################# jQuery ################################# -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+    	// jQuery code
+
+    	///////////////// fixed menu on scroll for desctop
+        if ($(window).width() > 992) {
+
+            var navbar_height =  $('.navbar').outerHeight();
+
+            $(window).scroll(function(){
+                if ($(this).scrollTop() > 50) {
+                     // $('#navbar_top').addClass("fixed-top");
+                     $('#border_nav').addClass("border_nav");
+                }else{
+                    // $('#navbar_top').removeClass("fixed-top");
+                    $('#border_nav').removeClass("border_nav");
+                }
+            });
+        } // end if
+    }); // jquery end
+    </script>
+<!-- ################################# -->
+    <script >
+      $(document).ready(function(){
+      	$("span[name=copy_pre]").click(function() {
+      		var id = $(this).attr('id');
+      		var el = document.getElementById(id);
+      		var range = document.createRange();
+      		range.selectNodeContents(el);
+      		var sel = window.getSelection();
+      		sel.removeAllRanges();
+      		sel.addRange(range);
+      		document.execCommand('copy');
+      		// alert("Contents copied to clipboard.");
+      		return false;
+      	});
+      });
+    </script>
+<!-- ################################# -->
+    <script type="text/javascript">
+      function copyinfo() {
+        function showinfo(){
+          $(".infocopy").css('opacity', '1')
+          $(".infocopy").css('transition', 'opacity 0.5s ease-in')
+          setTimeout(function(){ $(".infocopy").css('opacity', '0') }, 1000);
+        }
+        var info = document.getElementById('myemail');
+        info.addEventListener("click", function() { showinfo(); });
+
+        }
+    </script>
+<!-- ################################# jQuery END ################################# -->
+</head>
+
+<body style="width: auto !important; overflow-y: scroll">
+{% load bootstrap4 %}
+	<header>
+
+		<div class="container-fluid p-0">
+			<nav class="navbar navbar-expand-md fixed-top navbar-light" id = "border_nav">
+				<div class="container mynav">
+
+					<a class="navbar-brand" href="{% url 'home' %}"><img src="{% static  'img/logo.png' %}" alt="logo"></a>
+
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+
+					<div class="collapse navbar-collapse mynav" id="mainmenu">
+
+						<form class="form-inline" method="get" action="{% url 'search' %}">
+							<input class="form-control mr-1" name = "q" type="text" placeholder="Search..." aria-label="Search" value = {{query}}>
+						</form>
+
+						{% if user.is_authenticated %}
+							<a class="nav-item nav-link" href="{% url 'blog:createtwitt' %}" class="btn btn-simple"><strong>New Twitt</strong></a>
+							<a class="nav-item nav-link" href="{% url 'blog:for_user' username=user.username %}" class="btn btn-simple"><strong>My Twitts</strong></a>
+							<a class="nav-item nav-link" href="{% url 'accounts:logout' %}" class="btn btn-simple"><strong>Log out </strong><i class="fas fa-sign-out-alt"></i></a>
+						{% else %}
+							<a role = "button" class="nav-item nav-link twittb" href="{% url 'login' %}" class="btn btn-simple">Log in</a>
+							<a role = "button" class="nav-item nav-link twittbf" href="{% url 'accounts:signup' %}" class="btn btn-simple">Sign up</a>
+						{% endif %}
+					</div>
+
+				</div>
+			</nav>
+		</div>
+
+	</header>
+
+	<main>
+    {% block content %}
+    <div class="container" style = margin-top:72px>
+      <div class="row justify-content-center">
+
+        <div class="col-sm-8">
+          <img src="{% static  'img/clouds.png' %}" alt="" style="width:100%; height: 206px; margin-bottom:15px;">
+          <div class="infinite-container">
+            {% for twitt in page_obj %}
+              {% include "blog/_twitt.html" %}
+            {% endfor %}
+          </div>
+
+          <div class="pagination" style="margin-bottom: 25px;">
+              <span id ="change_page" class="step-links">
+                  {% if page_obj.has_previous %}
+                      <a href="?page=1">&laquo; first</a>
+                      <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                  {% endif %}
+
+                  <span class="current">
+                      Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                  </span>
+
+                  {% if page_obj.has_next %}
+                      <a href="?page={{ page_obj.next_page_number }}">next</a>
+                      <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                  {% endif %}
+              </span>
+          </div>
+
+        </div>
+
+        {% include "right_column.html" %}
+
+      </div>
+    </div>
+    {% endblock %}
+	</main>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+</body>
+</html>

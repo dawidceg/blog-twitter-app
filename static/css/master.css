@@ -1,0 +1,139 @@
+.ileft{
+  color: white;
+  background-color: #1da1f2;
+  width: 50%;
+  float: left;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ilogin{
+  text-align: right;
+  padding-top: 20px;
+  margin-right: 70px;
+}
+
+#abc{
+  height: 32px;
+  padding-left: 20px;
+  margin-left: 10px;
+}
+
+#abc::placeholder{
+  font-size: 14px;
+}
+
+#signup{
+    text-align: left;
+}
+
+img {
+  height: 50px;
+  width: 50px;
+}
+
+.iright{
+  background-color: #fff;
+  width: 50%;
+  float: left;
+  text-align: center;
+  height: 100vh;
+}
+
+
+.ifooter{
+  clear: both;
+  width: 100%;
+  padding: 0px;
+  text-align: center;
+  color: gray;
+  font-size: 12px;
+  height: 20px;
+}
+
+.buttons{
+  background: #1da1f2;
+  border-radius: 30px;
+  border-color: #1da1f2;
+}
+
+.buttons2{
+  background: #1da1f2;
+  border-radius: 30px;
+  border-color: #1da1f2;
+  margin: 5px;
+  width: 300px;
+  font-size: 12px;
+}
+
+#signup{
+  width: 300px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 75%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+}
+
+.imenu input{
+  text-align: center;
+}
+
+
+/* ############ */
+.navbar-brand > img{
+  width: 30px;
+  height: 30px;
+}
+
+.mynav{
+  text-align: center;
+
+}
+
+.form-control{
+  width: 100% !important;
+  border-radius: 30px;
+  background-color: #e6ecf0;
+  resize: none;
+}
+
+.twittbf{
+  border-radius: 30px;
+  color: white;
+  background-color: #1da1f2;
+  border: 1px solid #1da1f2;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  text-align: center;
+  width: 150px;
+  height: 30px;
+  font-weight: bold;
+  margin: 10px;
+}
+.twittb{
+  border-radius: 30px;
+  color: #1da1f2;
+  background-color: white;
+  border: 1px solid #1da1f2;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  text-align: center;
+  width: 150px;
+  height: 30px;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.twittb:hover{
+  background-color: #1da1f21a;
+  color: #1da1f2;
+}
+.twittbf:hover{
+  background-color: #1eb2f3;
+  color: white;
+}

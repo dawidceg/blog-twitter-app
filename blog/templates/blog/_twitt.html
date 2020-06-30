@@ -1,0 +1,21 @@
+{% load static %}
+
+<div class="row twitt_list infinite-item">
+
+  <div class="twitt_logo" onclick = "location.href='{% url 'blog:for_user' username=twitt.author.username %}';" style = "cursor:pointer;">
+      <img class="profile_img" src="{{twitt.author.profile.profile_pic.url}}" alt="">
+  </div>
+
+  <div class="profie_nick">
+    <div class="info">
+      <p id = "twitt_username">@{{ twitt.author.username }}</p>
+      <p id = "twitt_username2">@{{ twitt.author.username }}</p>
+      <p id = "twitt_date">Date: {{twitt.publish_date}}</p>
+      <p id = "comment_info"><i class="far fa-comment"></i> Comments: {{twitt.number_of_comments}}</p>
+    </div>
+    <div class="text" onclick = "location.href='{% url 'blog:singletwitt' username=twitt.author.username pk=twitt.pk %}';" style = "cursor:pointer;">
+      <p>{{ twitt.text|safe }}</p>
+    </div>
+  </div>
+
+</div>

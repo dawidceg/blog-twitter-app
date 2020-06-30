@@ -1,0 +1,65 @@
+{% extends "blog/blog_base.html" %}
+{% load static %}
+{% block twitt_content %}
+
+<div class="container" style = margin-top:72px>
+  <div class="row justify-content-center">
+
+    <div class="col-sm-8">
+
+      <div class="background_photo">
+        <img class = "background_photo" src="{{user_profile.profile.background_pic.url}}" alt="">
+
+        {% if request.user.username == user_profile.username %}
+          <button class = "edit_bgp" type="submit" name="button"><a href="{% url 'blog:profile' %}"><i class="fas fa-pen"></i></a></button>
+        {% endif %}
+
+      </div>
+      <div class="row img_profile_follow">
+        <div class="follow_btn">
+
+          <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+
+              <button class = "twittb" type="submit" name="{% if can_follow %}follow{% else %}unfollow{% endif %}">
+                {% if can_follow %}Follow{% else %}Unfollow{% endif %}</button>
+
+            </div>
+          </form>
+
+          <div class="logo">
+            <a href="{% url 'blog:for_user' username=user_profile.username %}"><img src="{{user_profile.profile.profile_pic.url}}" alt=""> </a>
+
+            {% if request.user.username == user_profile.username %}
+
+            <button class = "edit_pl" type="submit" name="button" ><a href="{% url 'blog:profile' %}"><i class="fas fa-pen"></i></a></button>
+            {% endif %}
+
+          </div>
+        </div>
+      </div>
+      <div class="profile_data">
+        <p id = "username">@{{ user_profile.username }}</p>
+        <p id = "username2">@{{ user_profile.username }}</p>
+        <p id = "profile_created_date"><span class="fa fa-calendar" aria-hidden="true"></span> Joined: {{user_profile.date_joined |date:'Y/m/d'}}</p>
+        <p style="display:inline-block"><span style = "font-weight: bold;">{{ user_profile.profile.following }} </span>Follow</p>
+        <p id="followed_info" style="display:inline-block"><span style = "font-weight: bold;">{{ user_profile.profile.followers_list.count }} </span>Followed</p>
+      </div>
+      <div class="row header">
+        <h4>Twitts</h4>
+      </div>
+
+
+<!-- ############## TWITTS -->
+
+  {% for twitt in twitt_list %}
+    {% include "blog/_twitt.html" %}
+  {% endfor %}
+    </div>
+
+    {% include "right_column.html" %}
+
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,310 @@
+body{
+  font-style: Helvetica;
+}
+.main{
+  background-color: white;
+  text-align: center;
+}
+
+#change_page{
+  color: black;
+  font-weight: bold;
+}
+
+img
+{
+	width: 100%;
+	height: auto;
+}
+
+/* ### BACKGROUND PHOTO ### */
+.background_photo{
+  height: 300px;
+  width: 100%;
+}
+
+.edit_bgp{
+  background-color: white;
+  border-color: #1da1f2;
+}
+
+.edit_bgp:hover{
+  background-color: #1da1f2;
+}
+
+.background_photo .edit_bgp{
+  text-align: left;
+  position: absolute;
+  top: 10px;
+  left: 690px;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.background_photo:hover .edit_bgp{
+  opacity: 1;
+}
+
+#right_column{
+  position: fixed;
+  width: 350px;
+}
+
+.navbar{
+  background-color: white;
+}
+
+.border_nav{
+  border-bottom: 1px solid #1da1f2;
+}
+
+.form-group{
+  label: "ddd"
+}
+
+/* ### PROFILE LOGO ###  */
+
+.logo{
+  text-align: left;
+  position: absolute;
+  top: -60px;
+}
+
+.logo img{
+  height: 120px;
+  width: 120px;
+  margin-left: 20px;
+  border-radius: 50%;
+}
+
+.edit_pl{
+  background-color: white;
+  border-color: #1da1f2;
+}
+
+.edit_pl:hover{
+  background-color: #1da1f2;
+}
+
+.logo .edit_pl{
+  text-align: left;
+  position: absolute;
+  top: 10px;
+  left: 90px;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.logo:hover .edit_pl{
+  opacity: 1;
+}
+
+
+.follow_btn{
+  position: relative;
+  text-align: right;
+  width: 100%;
+  padding-top: 20px;
+  padding-right: 20px;
+  height: 70px;
+  border-left: 1px solid #e6ecf0;
+  border-right: 1px solid #e6ecf0;
+}
+
+.img_profile_follow {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#username{
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-bottom: 0px;
+}
+
+#username2{
+  color: #657786;
+}
+
+#profile_created_date{
+  color: #657786;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+#followed_info{
+  padding-left: 50px;
+}
+
+.profile_data{
+  text-align: left;
+  padding-left: 10px;
+  width: 100%;
+  border-left: 1px solid #e6ecf0;
+  border-right: 1px solid #e6ecf0;
+
+}
+.profile_data p{
+  margin-bottom: 5px;
+}
+
+.header{
+  margin: 0px !important;
+  width: 100%;
+  border: 1px solid #e6ecf0;
+  /* border-left: 1px solid #e6ecf0;
+  border-right: 1px solid #e6ecf0; */
+}
+.header h4{
+  font-weight: bold;
+  float: left;
+  padding: 10px;
+  color: #1da1f2;
+  border-bottom: 2px solid #1da1f2;
+  margin-bottom: 0px;
+}
+.header h4:hover{
+  background-color: #1da1f21a;
+  /* cursor: pointer; */
+}
+
+/* ##### */
+.twitt_logo{
+    height: 100%;
+    width: 10%;
+}
+
+.twitt_list{
+  height: 200px;
+  width: 100%;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  border: 1px solid #e6ecf0;
+  margin-bottom: 5px;
+  background-color: #f7fdf0
+}
+.twitt_list:hover{
+  background-color: #f8fef1
+}
+.profie_nick{
+  width: 90%;
+}
+
+.profile_img{
+  margin-top: 20px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+#twitt_username{
+  padding-left: 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+  display:inline-block;
+}
+#twitt_username2{
+  color: #657786;
+  padding-left: 10px;
+  display:inline-block;
+  font-size: 0.9em;
+}
+#twitt_date{
+  color: #657786;
+  padding-left: 10px;
+  display:inline-block;
+  font-size: 0.9em;
+}
+#comment_info{
+  color: #657786;
+  padding-left: 10px;
+  display:inline-block;
+  font-size: 0.9em;
+}
+
+.info{
+  padding-left: 10px;
+  text-align: left;
+}
+
+/* ######### RIGHT COLUMN #########*/
+.users_follow_window{
+  height: 300px;
+  background-color: #f5f8fa;
+  border: 1px solid #7fcaf8;
+  border-radius: 15px;
+}
+
+.users_follow_list_logo{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.users_follow_list{
+  padding-left: 40px;
+  width: 348px;
+  margin-top: 15px;
+  margin-bottom: 0px;
+}
+
+.users_follow_list:hover{
+  background-color: #1da1f21a;
+}
+
+#users_follow_list_nick:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.about_me{
+  border: 1px solid #7fcaf8;
+  background-color: #f5f8fa;
+  border-radius: 15px;
+  margin-bottom: 50px;
+  padding-bottom: 16px;
+}
+
+.about_me tr > td{
+  padding-left: 25px;
+  padding-bottom: 10px;
+}
+
+.about_me tr > td > a:link{
+  color: #000000;
+}
+
+
+.about_me tr > td > a:visited{
+  color: #000000;
+}
+
+.about_me tr > td > a:hover{
+  color: #444444;
+  text-decoration: none;
+}
+
+#email:hover{
+  color: #444444;
+}
+
+.infocopy{
+  opacity: 0;
+}
+
+
+
+/* #### PROFILE PHOTOS EDIT ### */
+
+.photos_edit{
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  border: 1px solid #e6ecf0;
+  border-radius: 3px;
+  margin-bottom: 5px;
+  background-color: #f7fdf0;
+  padding-left: 20px;
+  padding-top: 10px;
+}

@@ -1,0 +1,41 @@
+{% load static %}
+{% url 'blog:for_user' username=user_profile.username as profile_page %}
+
+<div class="col-sm-4">
+  <div  class = "" id = "right_column">
+
+    <div class="about_me">
+        <p style= "padding-left: 25px; padding-top: 10px; color: #1da1f2; width: 100%;"><strong>About me:</strong></p>
+        <table>
+          <tr>
+            <td><a target="_blank" href="#"><i class="fas fa-address-card"> </i>  Website</a></td>
+          </tr>
+          <tr>
+            <td><a target="_blank" href="#"><i class="fab fa-linkedin"> </i>  Linkedin</a></td>
+          </tr>
+          <tr>
+            <td><a target="_blank" href="https://github.com/dawidceg"><i class="fab fa-github-square"> </i>  Github</a></td>
+          </tr>
+          <tr>
+            <td><span id="email"><i class="fas fa-envelope"> </i> <span onclick="copyinfo()" name="copy_pre" id="myemail" data-toggle="tooltip" title="Click two times to copy">cegielski.dawid@wp.pl</span></span><span id="copied" class= "infocopy"> <strong><i class="fas fa-check-square"></i> copied</strong> </span></td>
+          </tr>
+        </table>
+    </div>
+
+    {% if request.get_full_path == profile_page %}
+    <div class="overflow-auto users_follow_window" style="width:100%;">
+
+      <div class="row" style="width:100%;">
+        <div class="">
+          <p style= "padding-left: 40px; padding-top: 10px; color: #1da1f2; width: 100%;"><strong>Followers list:</strong> </p>
+        {% for following in user_profile.profile.followers_list %}
+            <p class="users_follow_list"><img src="{{following.user.profile.profile_pic.url}}" alt="" class="users_follow_list_logo">
+              <span style="padding-left:10px"><strong id = "users_follow_list_nick" onclick = "location.href='{% url 'blog:for_user' username=following %}';">@{{following}}</strong></span></p>
+        {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+  </div>
+</div>

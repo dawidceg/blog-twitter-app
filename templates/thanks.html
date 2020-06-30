@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+  <div class="container-fluid p-0">
+    <div class="container ileft">
+        <h4><p><span class="fa fa-search"> </span> Follow what interests you.</p>
+          <br><p><span class="fa fa-users"> </span> Find out what others are talking about.</p>
+          <br><p><span class="fa fa-comments-o" ></span> Join the conversation.</p>
+        </h4>
+    </div>
+    <div class="container iright">
+      <!-- <form class="ilogin" method="post">
+        <input id = "abc" type="text" placeholder="Username">
+        <input id = "abc" type="text" placeholder="Password">
+        <input class = "buttons btn btn-primary" type="submit" name="login" value="Login">
+      </form> -->
+      <div id = 'signup'>
+        <a href="{% url 'home' %}"><img src="{% static  'img/logo.png' %}" alt="logo"></a>
+        <h4><b>See what's happening in the world right now</b></h4><br>
+        <div class="imenu">
+          <h6>Join Twitter today!</h6>
+          <a class = "buttons2 btn btn-primary" href="{% url 'login' %}" type="button" name="button">Login</a>
+          <br>
+          <a class = "buttons2 btn btn-primary" href="{% url 'accounts:signup' %}" type="button" name="button" value="Signup">Signup</a>
+        </div>
+      </div>
+    </div>
+
+    <footer class="ifooter">
+      <div>
+        <ul class = "list-group list-group-horizontal">
+          <li class="list-group-item ifooter">Twitter Clone Project</li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+{% endblock %}

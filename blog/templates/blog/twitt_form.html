@@ -1,0 +1,30 @@
+{% extends "blog/blog_base.html" %}
+{% load bootstrap4 %}
+
+
+{% block twitt_content %}
+
+<div class="container" style = "margin-top:72px">
+  <div class="row justify-content-center">
+    <div class="col-sm-8">
+        <h4><i class="fas fa-plus"></i> Create Twitt</h4>
+
+        <form class="form-group" action="{% url 'blog:createtwitt' %}" method="post">
+          {% csrf_token %}
+          <div class="form-group twitt_list">
+            <label for="id_text"></label>
+            <textarea name="text" cols="10" rows="5" maxlength="280" class="form-control" placeholder="What's up?" title="" required="" id="id_text"></textarea>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn twittbf">Publish Twitt</button>
+          </div>
+        </form>
+
+    </div>
+
+    {% include "right_column.html" %}
+
+  </div>
+</div>
+
+{% endblock %}

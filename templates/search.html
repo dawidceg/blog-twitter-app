@@ -1,0 +1,38 @@
+{% extends "home.html" %}
+{% block content %}
+{% load static %}
+
+<div class="container" style = margin-top:72px>
+  <div class="row justify-content-center">
+
+    {% if alltwitts %}
+      <div class="col-sm-8">
+        <p></p>
+        <h6><i class="far fa-lightbulb"></i> You should may check the comments</h6>
+        <h6><i class="fas fa-mouse"></i> Click on Tweet to detail</h6>
+        <p></p>
+        {% for twitt in alltwitts %}
+
+          {% include "blog/_twitt.html" %}
+
+        {% endfor %}
+      </div>
+    {% else %}
+
+      <div class="col-sm-8">
+        <div class="row twitt_list ">
+          <h1><span class = "fas fa-sad-tear"></span></h1>
+          <h4> Not found any twitts</h4>
+        </div>
+      </div>
+
+    {% endif %}
+
+    {% include "right_column.html" %}
+
+    </div>
+  </div>
+
+
+
+{% endblock %}

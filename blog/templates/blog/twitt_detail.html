@@ -1,0 +1,88 @@
+{% extends "blog/blog_base.html" %}
+{% load bootstrap4 %}
+{% load static %}
+
+<!-- ######################################################################################### -->
+
+{% block twitt_content %}
+
+<div class="container" style = margin-top:72px>
+  <div class="row justify-content-center">
+
+    <div class="col-sm-8">
+
+      {% include "blog/_twitt.html" %}
+
+
+      {% if user.is_authenticated and twitt.author == user and not hide_delete %}
+
+        <a href="{% url 'blog:updatetwitt' pk=twitt.pk %}" title="update" class="btn twittbf">
+          <span class="fa fa-pencil" aria-hidden="true"></span>
+          <span class="icon-label">Update</span>
+        </a>
+
+        <a href="{% url 'blog:deletetwitt' pk=twitt.pk %}" title="delete" class="btn twittb">
+          <span class="fa fa-remove" aria-hidden="true"></span>
+          <span class="icon-label">Delete</span>
+        </a>
+      {% endif %}
+
+      <div class="">
+
+        <div class="row header">
+          <h4>Comments:</h4>
+        </div>
+
+        {% for comment in comments %}
+
+          <div class="row twitt_list">
+
+            <div class="twitt_logo" onclick = "location.href='{% url 'blog:for_user' username=comment.author.username %}';" style = "cursor:pointer;">
+              <img class="profile_img" src="{{comment.author.profile.profile_pic.url}}" alt="">
+            </div>
+
+            <div class="profie_nick">
+              <div class="info">
+                <p id = "twitt_username">@{{ comment.author.username }}</p>
+                <p id = "twitt_username2">@{{ comment.author.username }}</p>
+                <p id = "twitt_date">Date: {{ comment.publish_date | date:"H:i l, d.m.Y" }}</p>
+              </div>
+              <div class="text">
+                <p>{{ comment.text }}</p>
+              </div>
+            </div>
+
+          </div>
+
+        {% endfor %}
+      </div>
+
+      <div class="">
+          {% if user is not None %}
+            <div class="">
+              <div class="row header">
+                <h4>Add Comment:</h4>
+              </div>
+
+              <form class="form-group" method="post">
+                {% csrf_token %}
+                <div class="form-group twitt_list">
+                  <label for="id_text"></label>
+                  <textarea name="text" cols="10" rows="5" maxlength="280" class="form-control" placeholder="Your comment..." title="" required="" id="id_text"></textarea>
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn twittbf">Add Comment</button>
+                </div>
+              </form>
+
+            </div>
+          {% endif %}
+      </div>
+
+    </div>
+
+    {% include "right_column.html" %}
+
+  </div>
+</div>
+{% endblock %}
